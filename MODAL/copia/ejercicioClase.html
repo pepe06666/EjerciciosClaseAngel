@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana Modal con jQuery y Bootstrap 5.3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Puedes agregar algún estilo personalizado aquí si lo necesitas */
+        /* Estilos para el div con borde */
+        .div-con-borde {
+            width: 300px;
+            height: 250px;
+            border: 2px solid black; /* Grosor, estilo y color del borde */
+            padding: 20px; /* Espaciado interno del contenido */
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="w-75">
+            <h1>Lista de productos</h1>
+            <table class="table  text-center">
+                <tr id="producto1">
+                    <td >Producto 1</td>
+                    <td>Stock 15</td>
+                    <td>
+                        <button  class="btn btn-primary openModal">Agregar al carrito</button>
+                    </td>
+                </tr>
+                <tr  id="producto2">
+                    <td >Producto 2</td>
+                    <td>Stock 10</td>
+                    <td>
+                        <button  class="btn btn-primary openModal">Agregar al carrito</button>
+                    </td>
+                </tr>
+                <tr id="producto3">
+                    <td >Producto 3</td>
+                    <td>Stock 20</td>
+                    <td>
+                        <button  class="btn btn-primary openModal">Agregar al carrito</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--MODAL-->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Título de la modal</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container mt-5">
+                        <h2>Formulario Compra</h2>
+                        <form id="registrationForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="producto" class="form-label">Producto</label>
+                                <input type="text" class="form-control" id="producto" name="producto">
+ 
+                            </div>
+                            <div class="mb-3">
+                                <label for="cantidad" class="form-label">Cantidad a comprar</label>
+                                <input type="number" class="form-control" id="cantidad" name="cantidad" required>
+                                <div class="invalid-feedback">
+                                    Por favor, cantidad a pagar
+                                </div>
+                            </div>   
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeModal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="registroCompras">
+
+    </div>
+
+
+
+</body>
+</html>
+<script>
+    let nombreProducto;
+    let stock;
+
+    $(function () {
+        $(".openModal").on("click", function () {
+            var modal = new bootstrap.Modal($("#myModal"), {
+                keyboard: false
+            });
+            //cojo el tipo de producto
+            var parentTd = $(this).parent();
+            var fila = parentTd.parent(); 
+            nombreProducto = fila.find('td').first().text();
+            let datoStrock = fila.find('td').eq(1).text();//fila.children('td').eq(1).text();
+            let stockArray=datoStrock.split(" ");
+            stock = parseInt(stockArray[1]);
+
+            modal.show();
+            $("#producto").val(nombreProducto);
+
+           
+        });
+
+        // Cerrar el modal al hacer click en el botón "Cerrar"
+        $("#closeModal").on("click", function () {
+            var modal = bootstrap.Modal.getInstance($("#myModal"));
+            modal.hide();
+
+            
+            //quito classes 
+            $('#registrationForm')[0].reset(); // Resetea el formulario
+            $('#registrationForm').removeClass('was-validated');
+            $('#cantidad').removeClass("is-valid is-invalid");
+        });
+
+        // Desactivar la validación nativa del navegador
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault(); // Evitar el envío del formulario si no es válido
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated'); // Agregar las clases de validación de Bootstrap
+            }, false);
+        });
+        // Validación adicional con jQuery (puedes personalizarla)
+        $('#registrationForm').on('submit', function (e) {
+            e.preventDefault(); // Prevenir el envío por defecto
+            var isValid = true;
+
+           
+            //Cantidad
+            var cantidad = $('#cantidad').val();
+            alert(stock);
+            if (cantidad < 1 || cantidad < stock) {
+                $('#cantidad').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#cantidad').removeClass('is-invalid').addClass('is-valid');
+            }
+
+            // Si todo es válido, proceder con el envío
+            if (isValid) {
+                alert('Formulario enviado con éxito');
+                // e.target.submit();
+                let div = ` 
+                   <div class=" mb-4 shadow-sm">
+                        <div class=" d-flex justify-content-center align-items-center">
+                            <p class="mb-0 me-3">La cantidad es de ${cantidad} del producto ${nombreProducto}</p>
+                            <button class="btn btn-success">Agregar</button>
+                        </div>
+                    </div>
+                `;
+                //asocio datos
+                $("#registroCompras").append(div);
+               
+            }
+        });
+    })
+</script>

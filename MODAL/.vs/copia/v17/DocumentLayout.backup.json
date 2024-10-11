@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gabim\\Desktop\\tajamar\\angeltarea\\copia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{24FAD217-136B-48CB-9413-A090E70C645F}|copia\\copia.csproj|c:\\users\\gabim\\desktop\\tajamar\\angeltarea\\copia\\copia\\ejercicioclase.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24FAD217-136B-48CB-9413-A090E70C645F}|copia\\copia.csproj|solutionrelative:copia\\ejercicioclase.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24FAD217-136B-48CB-9413-A090E70C645F}|copia\\copia.csproj|C:\\Users\\gabim\\Desktop\\tajamar\\angeltarea\\copia\\copia\\pag1.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24FAD217-136B-48CB-9413-A090E70C645F}|copia\\copia.csproj|solutionrelative:copia\\pag1.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ejercicioClase.html",
+              "DocumentMoniker": "C:\\Users\\gabim\\Desktop\\tajamar\\angeltarea\\copia\\copia\\ejercicioClase.html",
+              "RelativeDocumentMoniker": "copia\\ejercicioClase.html",
+              "ToolTip": "C:\\Users\\gabim\\Desktop\\tajamar\\angeltarea\\copia\\copia\\ejercicioClase.html",
+              "RelativeToolTip": "copia\\ejercicioClase.html",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAiwJMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-11T06:58:45.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "pag1.html",
+              "DocumentMoniker": "C:\\Users\\gabim\\Desktop\\tajamar\\angeltarea\\copia\\copia\\pag1.html",
+              "RelativeDocumentMoniker": "copia\\pag1.html",
+              "ToolTip": "C:\\Users\\gabim\\Desktop\\tajamar\\angeltarea\\copia\\copia\\pag1.html",
+              "RelativeToolTip": "copia\\pag1.html",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAGkAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-11T06:16:40.343Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

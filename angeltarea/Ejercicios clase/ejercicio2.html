@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button onclick="sumardados()">sume dados</button>
+</body>
+</html>
+<script>
+    function sumardados() {
+        let arrayDados = [];
+        let min = 1;
+        let max = 6;
+        const tiradas = 6;
+        let sumaDados = 0;
+        console.log(min);
+
+
+
+        for (let i = 0; i < tiradas; i++) {
+            let dado1 = Math.floor(Math.random() * (max - min + 1)) + min;
+            let dado2 = Math.floor(Math.random() * (max - min + 1)) + min;
+            sumaDados = dado1 + dado2;
+            console.log('tirada'+[i+1])
+            console.log('dado1 '+dado1);
+            console.log('dad02 ' + dado2);
+            console.log('suma dados '+ sumaDados);
+
+            arrayDados.push(sumaDados);
+            console.log(arrayDados[i]);
+
+
+        }
+
+        ordenar(arrayDados);
+    }
+    function ordenar(arrayDados) {
+        let datosOrdenados = arrayDados.sort((a, b) => { return a - b });
+        console.log(datosOrdenados);
+        alert(datosOrdenados);
+    }
+   
+   
+
+</script>

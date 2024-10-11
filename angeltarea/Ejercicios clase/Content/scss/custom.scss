@@ -1,0 +1,19 @@
+﻿
+@import '_variables.scss';
+body {
+    h1 {
+        color: $colorPrimario;
+    }
+
+    p {
+        color: $colorSecundario;
+    }
+
+    .btn-primary {
+        @include button-style($colorPrimario);
+    }
+
+    .btn-secondary {
+        @include button-style($colorSecundario);
+    }
+}

@@ -1,0 +1,23 @@
+﻿// Variables
+$colorPrimario: #007bff; 
+$colorSecundario: #6c757d; 
+$padding: 10px; 
+$borderRadius: 5px; 
+
+// Mixin
+@mixin button-style($color) {
+    background-color: $color;
+    color: white;
+    padding: $padding;
+    border: none;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: darken($color, 10%);
+    }
+}
+
+
+

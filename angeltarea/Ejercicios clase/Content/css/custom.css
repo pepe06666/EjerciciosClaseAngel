@@ -1,0 +1,26 @@
+body h1 {
+  color: #007bff; }
+body p {
+  color: #6c757d; }
+body .btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; }
+  body .btn-primary:hover {
+    background-color: #0062cc; }
+body .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; }
+  body .btn-secondary:hover {
+    background-color: #545b62; }
+
+/*# sourceMappingURL=custom.css.map */
